@@ -3,6 +3,8 @@ import 'package:sign_saathi_app/config/strings.dart';
 import 'package:sign_saathi_app/utils/NavBar.dart';
 import 'package:sign_saathi_app/utils/sidebarNprofile.dart';
 
+import 'LessonPage.dart';
+
 class AvatarPage extends StatefulWidget {
   const AvatarPage({Key? key}) : super(key: key);
 
@@ -68,11 +70,13 @@ class _AvatarPageState extends State<AvatarPage> {
                         ),
                       ),
                     ),
+
                   ],
                 ),
                 SizedBox(height: screenSize.height * 0.10),
                 NavBar(screenSize: screenSize, pageName: PageNameAvatar),
               ]),
+
         ),
       ),
     );
