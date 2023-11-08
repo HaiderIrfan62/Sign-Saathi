@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:sign_saathi_app/config/config.dart';
 import 'package:sign_saathi_app/config/strings.dart';
 import 'package:sign_saathi_app/utils/NavBar.dart';
 import 'package:sign_saathi_app/utils/sidebarNprofile.dart';
@@ -18,15 +19,14 @@ class _AvatarPageState extends State<AvatarPage> {
     Size screenSize = MediaQuery.of(context).size;
 
     return Scaffold(
-      backgroundColor: Color(0xFFF6F4EB),
+      backgroundColor: backgroundColor,
       body: SafeArea(
         child: SingleChildScrollView(
           child: Column(
               mainAxisSize: MainAxisSize.min,
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: <Widget>[
-                SideBarNProfile(
-                    screenSize: screenSize, imagePath: 'lib/assets/avatar.png'),
+                SideBarNProfile(screenSize: screenSize, imagePath: 'lib/assets/avatar.png'),
                 Column(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
