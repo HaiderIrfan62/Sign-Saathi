@@ -1,4 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:sign_saathi_app/utils/NavBar.dart';
+import 'package:sign_saathi_app/utils/sidebarNprofile.dart';
+import 'package:sign_saathi_app/config/strings.dart';
+
+
 
 class LessonPage extends StatefulWidget {
   const LessonPage({Key? key}) : super(key: key);
@@ -13,36 +18,21 @@ class _LessonPageState extends State<LessonPage> {
     Size screenSize = MediaQuery.of(context).size;
 
     return Scaffold(
-      backgroundColor: Colors.white,
+      backgroundColor: Color(0xFFF6F4EB),
       body: SafeArea(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: <Widget>[
-            Padding(
-              padding: EdgeInsets.all(screenSize.height * 0.02),
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  CircleAvatar(
-                    backgroundColor: Colors.blue,
-                    child: Icon(Icons.menu, size: screenSize.height * 0.035, color: Colors.white),
-                  ),
-                  CircleAvatar(
-                    backgroundColor: Colors.blue,
-                    radius: screenSize.height * 0.04,
-                    child: CircleAvatar(
-                      radius: screenSize.height * 0.035,
-                      backgroundImage: AssetImage('lib/assets/avatar.png'),
-                    ),
-                  ),
-                ],
-              ),
-            ),
+            SideBarNProfile(
+                    screenSize: screenSize, imagePath: 'lib/assets/avatar.png'),
             
             // Rectangle with search bar just below the top two icons
+ Expanded(
+          child: ListView(
+            children: <Widget>[
 Container(
   margin: EdgeInsets.fromLTRB(screenSize.width * 0.05, 0, screenSize.width * 0.05, 0),
-  height: screenSize.height * 0.30,
+  height: screenSize.height * 0.27,
   width: screenSize.width * 0.9, // 1/4th of the screen
   decoration: BoxDecoration(
     color: Color(0xff357C93),
@@ -107,7 +97,49 @@ Container(
       ),
     ],
   ),
-)
+),
+Container(
+  margin: EdgeInsets.fromLTRB(screenSize.width * 0.05, screenSize.height * 0.05, screenSize.width * 0.05, 0),
+  height: screenSize.height * 0.20,
+  child: Column(
+    crossAxisAlignment: CrossAxisAlignment.start,
+    children: [
+      // Heading
+      Padding(
+        padding: EdgeInsets.all(screenSize.width * 0.02),
+        child: Text(
+          'Categories',
+          style: TextStyle(
+            color: Color(0xFF176B87),
+            fontSize: 20,
+            fontWeight: FontWeight.bold,
+          ),
+        ),
+      ),
+       SizedBox(height: screenSize.height * 0.01),
+      // Row of square boxes
+      Row(
+        mainAxisAlignment: MainAxisAlignment.spaceAround,
+        children: [
+          _buildSquareBox(screenSize, 'Mathematics', 'lib/assets/Matemathic.png'),
+          _buildSquareBox(screenSize, 'Geography', 'lib/assets/Globe.png'),
+          _buildSquareBox(screenSize, 'Science', 'lib/assets/Knowledge.png'),
+        ],
+      ),
+    ],
+  ),
+),
+              // Additional section 2
+              Container(
+                margin: EdgeInsets.fromLTRB(screenSize.width*0.05, screenSize.height*0.05, screenSize.width*0.05, 0),
+
+                height: screenSize.height * 0.15, // Adjust the height as needed
+                color: Colors.blue, // Example color
+                // Add your content for section 2 here
+              ),
+            ],
+          ),
+        ),
 
 
               // child: Column(
@@ -129,24 +161,43 @@ Container(
               //     ),
               //   ],
               // ),
-          ,
             
             // Rest of the content
-            Container(
-              color: Colors.blue, // Blue background for the bottom icons
-              padding: EdgeInsets.symmetric(vertical: screenSize.height * 0.015),
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                children: [
-                  Icon(Icons.person, size: screenSize.height * 0.035, color: Colors.white),
-                  Icon(Icons.camera_alt, size: screenSize.height * 0.035, color: Colors.white),
-                  Icon(Icons.thumb_up, size: screenSize.height * 0.035, color: Colors.white),
-                ],
-              ),
-            ),
+            NavBar(screenSize: screenSize, pageName: PageNameAvatar),
+            SizedBox(height: screenSize.height * 0.01),
+
           ],
         ),
       ),
     );
   }
 }
+
+Widget _buildSquareBox(Size screenSize, String text, String imagePath) {
+  return Container(
+    width: screenSize.width * 0.25, // Adjust the width as needed
+    height: screenSize.width * 0.25, // Make it square
+    decoration: BoxDecoration(
+      color: Colors.white,
+      borderRadius: BorderRadius.circular(15.0),
+            boxShadow: [
+        BoxShadow(
+          color: Colors.grey, // Shadow color
+          offset: Offset(3.0, 3.0), // Shadow offset
+          blurRadius: 6.0, // Shadow blur radius
+        ),
+      ],
+    ),
+    child: Column(
+      mainAxisAlignment: MainAxisAlignment.center,
+      children: [
+        Image.asset(
+          imagePath,
+          width: screenSize.width * 0.15, // Adjust image size as needed
+        ),
+        Text(text, style: TextStyle(fontSize: 15, fontWeight: FontWeight.bold), textAlign: TextAlign.center),
+      ],
+    ),
+  );
+}
+
