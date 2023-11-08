@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import 'LessonPage.dart';
+
 class AvatarPage extends StatefulWidget {
   const AvatarPage({Key? key}) : super(key: key);
 
@@ -71,7 +73,14 @@ class _AvatarPageState extends State<AvatarPage> {
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: [
-                  Icon(Icons.person, size: screenSize.height * 0.035, color: Colors.white),
+                  IconButton(iconSize: screenSize.height * 0.035, color: Colors.black, onPressed: () {
+                    Navigator.pushReplacement(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => LessonPage(),
+                      ),);
+                  }, icon: Icon(Icons.person)),
+                  // Icon(Icons.person, size: screenSize.height * 0.035, color: Colors.white),
                   Icon(Icons.camera_alt, size: screenSize.height * 0.035, color: Colors.white),
                   Icon(Icons.thumb_up, size: screenSize.height * 0.035, color: Colors.white),
                 ],
