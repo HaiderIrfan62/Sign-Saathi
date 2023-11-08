@@ -13,7 +13,7 @@ class _AvatarPageState extends State<AvatarPage> {
     Size screenSize = MediaQuery.of(context).size;
 
     return Scaffold(
-      backgroundColor: Color(0xFFF6F4EB),
+      backgroundColor: Color(0xFFF6F4EA),
       body: SafeArea(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
