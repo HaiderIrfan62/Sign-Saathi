@@ -50,6 +50,7 @@ class _GestureRecognitionPageState extends State<GestureRecognitionPage> {
             ),
             SizedBox(height: screenSize.height * 0.010),
             NavBar(screenSize: screenSize, pageName: PageNameGestureRecognition),
+            SizedBox(height: screenSize.height * 0.01),
           ],
         ),
       ),

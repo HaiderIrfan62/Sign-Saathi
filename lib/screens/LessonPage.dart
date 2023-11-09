@@ -32,7 +32,7 @@ class _LessonPageState extends State<LessonPage> {
             children: <Widget>[
 Container(
   margin: EdgeInsets.fromLTRB(screenSize.width * 0.05, 0, screenSize.width * 0.05, 0),
-  height: screenSize.height * 0.27,
+  height: screenSize.height * 0.24,
   width: screenSize.width * 0.9, // 1/4th of the screen
   decoration: BoxDecoration(
     color: Color(0xff357C93),
@@ -71,7 +71,7 @@ Container(
         ],
       ),
       Positioned(
-        bottom: -1 * screenSize.height * 0.03, // Position it at the bottom
+        bottom: -1 * screenSize.height * 0.04, // Position it at the bottom
         left: screenSize.width * 0.05, // Offset from the left edge
         right: screenSize.width * 0.05, // Offset from the right edge
         child: Container(
@@ -106,17 +106,17 @@ Container(
     children: [
       // Heading
       Padding(
-        padding: EdgeInsets.all(screenSize.width * 0.02),
+        padding: EdgeInsets.fromLTRB(screenSize.width * 0.02, screenSize.height * 0.01, screenSize.width * 0.02, 0),
         child: Text(
-          'Categories',
+          'CATEGORIES',
           style: TextStyle(
-            color: Color(0xFF176B87),
+            color: Color(0xFF357C93),
             fontSize: 20,
             fontWeight: FontWeight.bold,
           ),
         ),
-      ),
-       SizedBox(height: screenSize.height * 0.01),
+      ),  
+       SizedBox(height: screenSize.height * 0.02),
       // Row of square boxes
       Row(
         mainAxisAlignment: MainAxisAlignment.spaceAround,
@@ -131,15 +131,106 @@ Container(
 ),
               // Additional section 2
               Container(
-                margin: EdgeInsets.fromLTRB(screenSize.width*0.05, screenSize.height*0.05, screenSize.width*0.05, 0),
+                margin: EdgeInsets.fromLTRB(screenSize.width*0.05, 0, screenSize.width*0.05, 0),
 
-                height: screenSize.height * 0.15, // Adjust the height as needed
-                color: Colors.blue, // Example color
-                // Add your content for section 2 here
-              ),
-            ],
+                height: screenSize.height * 0.25, // Adjust the height as needed
+                // color: Colors.blue,
+  child: Column(
+    crossAxisAlignment: CrossAxisAlignment.start,
+    children: [
+      // Heading
+      Padding(
+        padding: EdgeInsets.fromLTRB(screenSize.width * 0.02,0 ,screenSize.width * 0.02, 0),
+        child: Text(
+          'COURSES',
+          style: TextStyle(
+            fontSize: 20,
+            fontWeight: FontWeight.bold,
+            color: Color(0xFF357C93),
+
           ),
         ),
+      ),
+      //   Rectangle with rounded edges
+      Container(
+        margin: EdgeInsets.only(left: screenSize.width * 0.02, right: screenSize.width * 0.02, top: screenSize.height * 0.02),
+        width: screenSize.width*0.85,
+        height: screenSize.height *0.18,
+        decoration: BoxDecoration(
+          color: Colors.white,
+          borderRadius: BorderRadius.circular(15.0),
+          boxShadow: [
+        BoxShadow(
+          color: Colors.grey, // Shadow color
+          offset: Offset(3.0, 3.0), // Shadow offset
+          blurRadius: 6.0, // Shadow blur radius
+        ),
+      ],
+        ),
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: [
+            // Left Section
+            Expanded(
+              flex: 6, // Takes up 60% of the width
+              child: Padding(
+                padding: EdgeInsets.fromLTRB(screenSize.width * 0.04, screenSize.height * 0.02, 0, 0),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text(
+                      'ENGLISH READING',
+                      style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold, color: Color(0xFF176B87)),
+                    ),
+    
+                    SizedBox(height: screenSize.height*0.01),
+                    // Start Button
+                    ElevatedButton(
+                      
+                      
+      onPressed: () {
+      },
+
+      child: Text("START", style: TextStyle(fontSize: 14),),
+      style: ElevatedButton.styleFrom(
+        shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(30)
+        ),
+        backgroundColor: Color(0xFF357C93),
+        padding: EdgeInsets.only(left: 30, top: 8, right: 30, bottom: 8),
+      ),
+    ),
+                  ],
+                ),
+              ),
+            ),
+            // Right Section
+            Expanded(
+              flex: 5, // Takes up 40% of the width
+              child: Container(
+                decoration: BoxDecoration(
+                  color: Color(0xFF053B50),
+                  borderRadius: BorderRadius.circular(15.0),
+                ),
+                child: Center(
+                  child: Container(
+                    width: screenSize.width * 0.2,
+                    height: screenSize.height * 0.2 ,
+                    child: Center(
+                      child: Image.asset('lib/assets/ion_book-outline.png'),
+                    
+                    ),
+                  ),
+                ),
+              ),
+            ),
+          ],
+        ),
+      ),
+  
+    ],
+  ),
+),
 
 
               // child: Column(
@@ -163,13 +254,13 @@ Container(
               // ),
             
             // Rest of the content
-            NavBar(screenSize: screenSize, pageName: PageNameAvatar),
-            SizedBox(height: screenSize.height * 0.01),
 
           ],
         ),
       ),
-    );
+            NavBar(screenSize: screenSize, pageName: PageNameLessons),
+            SizedBox(height: screenSize.height * 0.01),
+    ],),),);
   }
 }
 

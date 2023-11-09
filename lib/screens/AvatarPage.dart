@@ -75,6 +75,8 @@ class _AvatarPageState extends State<AvatarPage> {
                 ),
                 SizedBox(height: screenSize.height * 0.10),
                 NavBar(screenSize: screenSize, pageName: PageNameAvatar),
+            SizedBox(height: screenSize.height * 0.01),
+
               ]),
 
         ),

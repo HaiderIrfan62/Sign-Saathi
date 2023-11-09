@@ -14,7 +14,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Sign Saathi',
-      home: const LessonPage(),
+      home: const LandingPage(),
     );
   }
 }
