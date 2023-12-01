@@ -22,6 +22,7 @@ class _LessonPageState extends State<LessonPage> {
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: <Widget>[
             SideBarNProfile(
+
                 screenSize: screenSize, imagePath: 'lib/assets/avatar.png'),
 
             // Rectangle with search bar just below the top two icons
@@ -154,10 +155,62 @@ class _LessonPageState extends State<LessonPage> {
                     // Adjust the height as needed
                     color: Colors.blue, // Example color
                     // Add your content for section 2 here
+
+
                   ),
                 ],
               ),
             ),
+
+          ),
+        ),
+      ),
+    ],
+  ),
+),
+Container(
+  margin: EdgeInsets.fromLTRB(screenSize.width * 0.05, screenSize.height * 0.05, screenSize.width * 0.05, 0),
+  height: screenSize.height * 0.20,
+  child: Column(
+    crossAxisAlignment: CrossAxisAlignment.start,
+    children: [
+      // Heading
+      Padding(
+        padding: EdgeInsets.all(screenSize.width * 0.02),
+        child: Text(
+          'Categories',
+          style: TextStyle(
+            color: Color(0xFF176B87),
+            fontSize: 20,
+            fontWeight: FontWeight.bold,
+          ),
+        ),
+      ),
+       SizedBox(height: screenSize.height * 0.01),
+      // Row of square boxes
+      Row(
+        mainAxisAlignment: MainAxisAlignment.spaceAround,
+        children: [
+          _buildSquareBox(screenSize, 'Mathematics', 'lib/assets/Matemathic.png'),
+          _buildSquareBox(screenSize, 'Geography', 'lib/assets/Globe.png'),
+          _buildSquareBox(screenSize, 'Science', 'lib/assets/Knowledge.png'),
+        ],
+      ),
+    ],
+  ),
+),
+              // Additional section 2
+              Container(
+                margin: EdgeInsets.fromLTRB(screenSize.width*0.05, screenSize.height*0.05, screenSize.width*0.05, 0),
+
+                height: screenSize.height * 0.15, // Adjust the height as needed
+                color: Colors.blue, // Example color
+                // Add your content for section 2 here
+              ),
+            ],
+          ),
+        ),
+
 
             // child: Column(
             //   children: [
@@ -179,9 +232,32 @@ class _LessonPageState extends State<LessonPage> {
             //   ],
             // ),
 
+
             // Rest of the content
             NavBar(screenSize: screenSize, pageName: PageNameLessons),
             SizedBox(height: screenSize.height * 0.01),
+
+              // child: Column(
+              //   children: [
+              //     // Add your search bar widget here
+              //     TextField(
+              //       decoration: InputDecoration(
+              //         hintText: 'Search...',
+              //         // Customize the search bar as needed
+              //       ),
+              //     ),
+              //     // Heading
+              //     Padding(
+              //       padding: EdgeInsets.only(left: screenSize.width * 0.02),
+              //       child: Text(
+              //         'Your Heading',
+              //         style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+              //       ),
+              //     ),
+              //   ],
+              // ),
+            
+
           ],
         ),
       ),
@@ -196,7 +272,9 @@ Widget _buildSquareBox(Size screenSize, String text, String imagePath) {
     decoration: BoxDecoration(
       color: Colors.white,
       borderRadius: BorderRadius.circular(15.0),
+
       boxShadow: [
+
         BoxShadow(
           color: Colors.grey, // Shadow color
           offset: Offset(3.0, 3.0), // Shadow offset
@@ -217,4 +295,4 @@ Widget _buildSquareBox(Size screenSize, String text, String imagePath) {
       ],
     ),
   );
-}
+
