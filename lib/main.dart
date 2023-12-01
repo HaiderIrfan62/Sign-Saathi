@@ -1,9 +1,13 @@
+import 'package:camera/camera.dart';
 import 'package:flutter/material.dart';
 import 'package:sign_saathi_app/screens/LandingPage.dart';
 import 'package:sign_saathi_app/screens/LessonPage.dart';
 
+List<CameraDescription>? cameras;
 
-void main() {
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  cameras = await availableCameras();
   runApp(const MyApp());
 }
 
@@ -14,7 +18,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Sign Saathi',
-      home: const LessonPage(),
+      home: const LandingPage(),
     );
   }
 }
