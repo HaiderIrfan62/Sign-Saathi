@@ -1,5 +1,4 @@
 import 'dart:async';
-
 import 'package:camera/camera.dart';
 import 'package:flutter/material.dart';
 import 'package:sign_saathi_app/config/strings.dart';
@@ -18,18 +17,38 @@ class GestureRecognitionPage extends StatefulWidget {
   State<GestureRecognitionPage> createState() => _GestureRecognitionPageState();
 }
 
-class _GestureRecognitionPageState extends State<GestureRecognitionPage> {
+class _GestureRecognitionPageState extends State<GestureRecognitionPage> with WidgetsBindingObserver {
   CameraImage? cameraImage;
   CameraController? cameraController;
-  String output = "";
+  String output = " ";
 
   Timer? _timer;
 
   @override
   void initState(){
     super.initState();
-    loadCamera();
-    loadmodel();
+    WidgetsBinding.instance?.addObserver(this); // Use the null-aware operator '?'
+    if(cameraOn) {
+      loadCamera();
+      loadmodel();
+    }
+  }
+
+  @override
+  void dispose() {
+    WidgetsBinding.instance?.removeObserver(this); // Use the null-aware operator '?'
+    cameraController?.dispose();
+    super.dispose();
+  }
+
+  @override
+  void didChangeAppLifecycleState(AppLifecycleState state) {
+    if (state == AppLifecycleState.resumed) {
+      loadCamera();
+    } else if (state == AppLifecycleState.paused) {
+      cameraController?.stopImageStream();
+      cameraController?.dispose();
+    }
   }
 
   loadCamera(){
@@ -105,7 +124,7 @@ class _GestureRecognitionPageState extends State<GestureRecognitionPage> {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
-            SideBarNProfile(screenSize: screenSize, imagePath: 'lib/assets/avatar.png'),
+            SideBarNProfile(screenSize: screenSize, imagePath: 'lib/assets/avatar1.png'),
             Container(
               padding: EdgeInsets.symmetric(vertical: screenSize.height * 0.015, horizontal: screenSize.width * 0.015),
               height: screenSize.height * 0.7,

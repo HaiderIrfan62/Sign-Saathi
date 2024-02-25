@@ -7,5 +7,5 @@ String PageNameGestureRecognition = 'gestureRecognition';
 String AvatarPageSearch = "TYPE SOMETHING";
 
 //GestureRecognitionPage
-String GestureRecognitionWordHeading = "YOUR WORD IS:";
+String GestureRecognitionWordHeading = "YOUR LETTER IS:";
 String GestureRecognitionStartBtn = "START";

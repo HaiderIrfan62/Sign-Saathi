@@ -35,8 +35,11 @@ dependencies:
 
   tflite_flutter: ^0.10.3
   tflite_v2: ^1.0.0
-
   http: any
+  video_player: ^2.8.1
+  fluttertoast: ^8.2.4
+  image_picker: ^0.8.4
+  modal_progress_hud_nsn: ^0.4.0
 
 
 
@@ -68,6 +71,7 @@ flutter:
   assets:
     - lib/assets/
     - lib/model/
+    - videos/
 
 
   # To add assets to your application, add an assets section, like this:
